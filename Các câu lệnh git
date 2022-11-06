@@ -1,0 +1,65 @@
+// Cách Đẩy Project Lên Repositories Của GitHub
+
+git init //Khởi tạo Repositories tại máy chủ
+git add . // Thêm toàn bộ các file đã được tác động
+git commit -m"finsh-project" // ghi lại việc thay đổi và đẩy thông tin thay đổi lên Local Respository
+git remote add origin < link github của bạn > //
+git push -u origin <tên nhánh> // đẩy lên Github
+
+
+------------------------------------------------------------------------------------------
+
+// Cách đẩy dữ liệu lên Github khi đã có sẳn Repositories ở máy
+git status // kiểm tra các file đã được thay đổi
+git add . // Thêm toàn bộ các file đã được tác động
+git commit -m "Nội dung của bạn" // ghi lại việc thay đổi và đẩy thông tin
+git branch // kiểm tra nhánh hiện có và chuyển sang nhánh cần thay đổi
+git push -u origin <tên nhánh> // đẩy lên Github
+
+-------------------------------------------------------------------------------------------
+
+// Lấy dự án từ Repositories Của GitHub về Local Respository
+git clone <link respository> 
+
+// Lẩy dự liệu đã thay đổi trên server reponsitory
+git pull 
+
+// Lấy branch trên github về local
+git checkout <branch name>
+git fetch origin
+git checkout -b <branch name> origin/<branch name>
+
+// Kiểm tra các nhánh hiện có
+git branch
+
+// Tạo nhánh mới
+git checkout -b branch-name
+
+// Xóa nhánh 
+git branch -d branch-name
+
+// Chuyển nhánh 
+git checkout branch-name 
+
+// Hợp nhánh 
+git merge tên-nhánh-cần-hợp
+
+------------------------------------------------------
+
+// xử lý xung đột
+
+// Quay về nhánh chính
+git checkout tên-nhánh
+
+// tiến hành cập nhật những thay đổi mới nhất từ nhánh chính
+git pull origin nhánh-chính
+
+// chuyển về nhánh hiện tại đang code 
+git checkout tên-nhánh
+
+// hợp những dự liệu đang có ở nhánh chính qua nhánh đang dev
+git merge nhánh-chính 
+
+// Push những thay đổi của nhánh đang dev sau khi hoàn thành task 
+git push -u origin tên-nhánh 
+
