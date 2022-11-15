@@ -46,6 +46,16 @@
       display: flex;
       align-items: center;
 
+      .navbar-login, .navbar-register{
+        padding: 10px 16px;
+        color: white;
+        background-color: black;
+        text-decoration: none;
+        border-radius: 10px;
+        margin-right: 10px;
+        
+      }
+
       .icon {
         margin: 0px 15px;
         cursor: pointer;
