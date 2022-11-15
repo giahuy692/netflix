@@ -1,14 +1,15 @@
 import ArrowBackIosNewOutlinedIcon from '@mui/icons-material/ArrowBackIosNewOutlined';
 import "./watch.scss";
 import video from "./video/The Matrix Video.mp4";
+import { Link } from "react-router-dom";
 
 export default function Watch() {
   return (
     <div className="watch">
-      <div className="back">
+      <Link to="/" className="back">
         <ArrowBackIosNewOutlinedIcon />
         Home
-      </div>
+      </Link>
       <video
         className="video"
         autoPlay
