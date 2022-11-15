@@ -4,6 +4,7 @@ import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import { Link } from "react-router-dom";
 import "./navbar.scss";
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
     const [isScrolled, setIsScrolled] = useState(false);
@@ -44,6 +45,7 @@ const Navbar = () => {
                                     <span>Logout</span>
                                 </div>
                             </div>
+
                         </div>
                     </div>
                 </div>

@@ -1,5 +1,6 @@
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
+import { Link } from 'react-router-dom';
 import "./featured.scss";
 
 export default function Featured({ type }) {
@@ -42,14 +43,14 @@ export default function Featured({ type }) {
           temporibus eum earum?
         </span>
         <div className="buttons">
-          <button className="play">
+          <Link to="/watch" className="play">
             <PlayArrowIcon />
             <span>Play</span>
-          </button>
-          <button className="more">
+          </Link>
+          <Link to="/" className="more">
             <InfoOutlinedIcon />
             <span>Info</span>
-          </button>
+          </Link>
         </div>
       </div>
     </div>

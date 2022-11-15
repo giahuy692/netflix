@@ -21,10 +21,6 @@ const App = () => {
     </>
     </div>
   )
-  // <Register/>;
-  // <Home />;
-  // <Login />;
-  // <Watch />;
 };
 
 export default App;
