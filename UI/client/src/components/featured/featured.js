@@ -1,15 +1,41 @@
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
-import { Link } from 'react-router-dom';
+import axios from "axios";
+import { useEffect, useState } from "react";
 import "./featured.scss";
+import { Link } from "react-router-dom";
 
-export default function Featured({ type }) {
+export default function Featured({ type, setGenre }) {
+  const [content, setContent] = useState({});
+
+  useEffect(() => {
+    const getRandomContent = async () => {
+      try {
+        const res = await axios.get(`/movies/random?type=${type}`, {
+          headers: {
+            token:
+              "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,
+          },
+        });
+        setContent(res.data[0]);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    getRandomContent();
+  }, [type]);
+
+  console.log(content);
   return (
     <div className="featured">
       {type && (
         <div className="category">
           <span>{type === "movie" ? "Movies" : "Series"}</span>
-          <select name="genre" id="genre">
+          <select
+            name="genre"
+            id="genre"
+            onChange={(e) => setGenre(e.target.value)}
+          >
             <option>Genre</option>
             <option value="adventure">Adventure</option>
             <option value="comedy">Comedy</option>
@@ -27,32 +53,23 @@ export default function Featured({ type }) {
           </select>
         </div>
       )}
-      <img
-        src="https://sm.ign.com/ign_sr/news/t/the-matrix/the-matrix-4-full-title-reportedly-leaked_29rv.jpg"
-        alt=""
-      />
+      <img src={content.img} alt="" />
       <div className="info">
-        <img
-          src="https://occ-0-1432-1433.1.nflxso.net/dnm/api/v6/LmEnxtiAuzezXBjYXPuDgfZ4zZQ/AAAABUZdeG1DrMstq-YKHZ-dA-cx2uQN_YbCYx7RABDk0y7F8ZK6nzgCz4bp5qJVgMizPbVpIvXrd4xMBQAuNe0xmuW2WjoeGMDn1cFO.webp?r=df1"
-          alt=""
-        />
-        <span className="desc">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae
-          adipisci repellendus eum quasi illo, velit numquam, maxime tempora
-          sint deleniti, aliquid qui? Facilis, adipisci! Ratione hic repudiandae
-          temporibus eum earum?
-        </span>
+        <img src={content.imgTitle} alt="" />
+        <span className="desc">{content.desc}</span>
         <div className="buttons">
-          <Link to="/watch" className="play">
-            <PlayArrowIcon />
-            <span>Play</span>
+          <Link to="/watch">
+            <button className="play">
+              <PlayArrowIcon />
+              <span>Play</span>
+            </button>
           </Link>
-          <Link to="/" className="more">
+          <button className="more">
             <InfoOutlinedIcon />
             <span>Info</span>
-          </Link>
+          </button>
         </div>
       </div>
     </div>
   );
-};
+}
