@@ -1,8 +1,3 @@
-*{
-  list-style-type: none;
-  text-decoration: none;
-  box-sizing: border-box;
-}
 .login {
   width: 100vw;
   height: 100vh;
@@ -46,9 +41,9 @@
     color: white;
 
     form {
-      width: 300px;
-      height: 300px;
-      padding: 30px;
+      width: 350px;
+      height: 350px;
+      padding: 20px;
       border-radius: 5px;
       background-color: var(--main-color);
       display: flex;
@@ -82,6 +77,8 @@
         color: lightgray;
         b {
           color: white;
+          cursor: pointer;
+          margin-left: 5px;
         }
       }
     }

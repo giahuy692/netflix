@@ -1,8 +1,7 @@
 import axios from "axios";
 import { useRef } from "react";
 import { useState } from "react";
-// import { useHistory as Router, Switch, Route} from "react-router-dom";   -dòng này t mới đưa vào-
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import "./Register.scss";
 
 export default function Register() {
@@ -27,20 +26,18 @@ export default function Register() {
     setPassword(passwordRef.current.value);
     setUsername(usernameRef.current.value);
     try {
-      await axios.post("api/auth/register", { email,username, password });
+      await axios.post("auth/register", { email, username, password });
       navigate("/login");
-    } catch (err) {}
+    } catch (err) { }
   };
   return (
     <div className="register">
       <div className="top">
         <div className="wrapper">
-          <img
-            className="logo"
-            src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/2560px-Netflix_2015_logo.svg.png"
-            alt=""
-          />
-          <button className="loginButton" onClick={handleSignIn}>Sign In</button> 
+          <Link to="/" className="home-items">
+            HorizonFlix
+          </Link>
+          <button className="loginButton" onClick={handleSignIn}>Sign In</button>
         </div>
       </div>
       <div className="container">
