@@ -6,7 +6,7 @@
       rgba(0, 0, 0, 0) 0%,
       rgba(0, 0, 0, 1) 100%
     ),
-    url("http://mppmduse2pmpovwapp.azurewebsites.net/wp-content/uploads/2019/09/netflix-background-9.jpg");
+    url("https://www.nyfa.edu/student-resources/wp-content/uploads/2015/03/action-movie.jpg");
   background-size: cover;
   position: relative;
 
@@ -25,6 +25,21 @@
       font-size: 35px;
       font-weight: 800;
       letter-spacing: 2px;
+    }
+    .loginButton {
+      background-color: red;
+      border: none;
+      color: white;
+      border-radius: 5px;
+      padding: 5px 15px;
+      font-size: 16px;
+      font-weight: 500;
+      cursor: pointer;
+    }
+
+    .loginButton:hover{
+      background-color: #d6111f;
+      color: black;
     }
   }
 
